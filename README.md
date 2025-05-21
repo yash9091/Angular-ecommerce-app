@@ -1,59 +1,44 @@
-# AngularEcomm
+# 🛍️ Angular E-Commerce App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+An elegant and responsive E-Commerce web application built with **Angular**. It features a product listing page, detailed product view, cart management with quantity control, dynamic order summary, and a simulated checkout page — all inspired by top platforms like Flipkart and Myntra.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Features
 
-```bash
-ng serve
-```
+- 🔍 Product listing with image, title, and price
+- 📦 Product detail page with full description
+- 🛒 Cart functionality with:
+  - Add/remove items
+  - Quantity increment/decrement
+  - Price calculation per item
+- 📊 Order Summary with:
+  - Subtotal, discount, delivery charges
+  - Final total calculation
+- 🧾 Checkout form simulation (name, address, payment method)
+- 💬 Contact Us Page
+- 📱 Responsive design
+- 💾 LocalStorage integration to persist cart data
+- 🧮 Global cart count badge in header
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
+## 🧰 Tech Stack
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **Angular 17+**
+- **TailwindCSS** (for styling)
+- **TypeScript**
+- **LocalStorage** (for cart persistence)
+- **RouterModule** (for navigation)
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## 📦 Installation
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+1. **Clone the repository**
 
 ```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+git clone https://github.com/your-username/angular-ecommerce-app.git
+cd angular-ecommerce-app
