@@ -5,14 +5,16 @@ import { CartService } from '../../../services/cart.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ProductDescriptionComponent } from "../../product-list/product-description/product-description.component";
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [MatSnackBarModule, RouterLink, PrimaryButtonComponent],
+  imports: [ CommonModule,MatSnackBarModule, RouterLink, PrimaryButtonComponent],
   template: `
     <div
-      class="bg-white  shadow-lg border border-gray-200 rounded-2xl p-4 flex flex-col gap-4 relative transition-transform hover:scale-[1.02] hover:shadow-xl duration-300 relative h-[300px] max-h-[320px]"
+      class="bg-white  shadow-lg border rounded-lg border-gray-300  p-4 flex flex-col gap-4 relative transition-transform hover:scale-[1.02] hover:shadow-xl duration-300 relative h-[300px] max-h-[320px]"
       tabindex="-1"
     >
       <!-- Product Image -->
@@ -35,13 +37,6 @@ import { ProductDescriptionComponent } from "../../product-list/product-descript
         </span>
       </div>
 
-      <!-- Add to Cart Button -->
-
-      <!-- <app-primary-button
-        (btnClicked)="onAddToCartClick()"
-        class="mt-2"
-        label="Add to Cart"
-      /> -->
       
       <app-primary-button
   [routerLink]="'/product/' + product().id"
@@ -50,18 +45,16 @@ import { ProductDescriptionComponent } from "../../product-list/product-descript
 />
 
 
-      <!-- Stock Indicator -->
-      <span
-        class="absolute top-2 right-3 text-sm font-semibold"
-        [class]="product().stock ? 'text-green-600' : 'text-red-500'"
-      >
-        @if (product().stock) {
-          {{ product().stock }} left
-        } @else {
-          Out of stock
-        }
-      </span>
-    </div>
+<!-- Rating Display -->
+<span
+  class="absolute top-2 right-3 text-sm font-semibold"
+[ngClass]="getRatingColor()"
+>
+  ⭐ {{ product().rating?.rate || 'No Rating' }}
+</span>
+
+
+
   `,
   styles: [`
     /* Optional: Truncate title nicely */
@@ -77,6 +70,14 @@ export class ProductCardComponent {
   cartService = inject(CartService);
   product = input.required<Product>();
   snackBar = inject(MatSnackBar);
+
+  getRatingColor(): string {
+  const rate = this.product().rating?.rate;
+  if (rate === undefined) return 'text-gray-400';
+  if (rate >= 4) return 'text-green-600';
+  if (rate >= 2) return 'text-yellow-500';
+  return 'text-red-500';
+}
 
   onAddToCartClick() {
     const item = this.product();
