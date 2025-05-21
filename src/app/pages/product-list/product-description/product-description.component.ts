@@ -41,7 +41,7 @@ export class ProductDescriptionComponent {
   const item = this.product; // ✅ access as property, not a function
   this.cartService.addToCart(item); 
   this.snackBar.open('🛒 Added to cart!', 'Close', {
-    duration: 2000,
+    duration: 1000,
     horizontalPosition: 'right',
     verticalPosition: 'top',
     panelClass: ['bg-blue-500', 'text-white']

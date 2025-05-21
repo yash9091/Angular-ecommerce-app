@@ -16,7 +16,7 @@ import { OrderSummaryComponent } from "../order-summary/order-summary.component"
     <img [src]="item().image" class="w-20 h-20 object-contain rounded-md border" alt="Product Image" />
     <div>
       <h3 class="text-lg font-semibold text-gray-800">{{ item().title }}</h3>
-      <p class="text-gray-600 text-sm">Price: ₹{{ item().price }}</p>
+      <p class="text-gray-600 text-sm">Price: {{ '$'+ item().price }}</p>
     </div>
   </div>
 
@@ -35,7 +35,7 @@ import { OrderSummaryComponent } from "../order-summary/order-summary.component"
 
   <!-- Price & Remove -->
   <div class="flex flex-col items-end gap-2">
-    <div class="font-semibold text-gray-700 text-md">₹{{ item().price * item().quantity }}</div>
+    <div class="font-semibold text-gray-700 text-md">{{ '$'+ item().price * item().quantity }}</div>
     <button
       (click)="cartService.removeFromCart(item().id)"
       class="text-red-500 hover:text-red-600 text-sm"

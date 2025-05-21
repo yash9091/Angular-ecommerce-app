@@ -79,14 +79,5 @@ export class ProductCardComponent {
   return 'text-red-500';
 }
 
-  onAddToCartClick() {
-    const item = this.product();
-    this.cartService.addToCart(item); 
-    this.snackBar.open('🛒 Added to cart!', 'Close', {
-      duration: 2000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-      panelClass: ['bg-blue-500', 'text-white']
-    });
-  }
+
 }
